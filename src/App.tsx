@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/restrict-plus-operands */
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 import { useState } from 'react'
 import './App.css'
@@ -47,6 +48,8 @@ function App() {
         flexDirection: "column",
         border: "1px solid #bdbdbd",
         width: "320px",
+        padding: "10px",
+        borderRadius: "5px",
 
       }}>
         <h3>{currencyResult} USD</h3>
@@ -58,7 +61,10 @@ function App() {
         }} type='number' value={currencyInput} onChange={(e) => setCurrencyInput(e.target.value)} />
         <button 
         style={{
-          height: "45px"
+          height: "45px",
+          backgroundColor: "#009688",
+          border: "none",
+
         }}
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onClick={() => fetchData(currencyInput)}>{isLoading ? "Converting ..." : "Convert"}</button>
@@ -67,7 +73,10 @@ function App() {
       <div
         style={{
           border: "1px solid #bdbdbd",
-          margin: "20px 0 0 0"
+          margin: "20px 0 0 0",
+          width: "320px",
+          padding: "10px",
+        borderRadius: "5px",
         }}
       >
         <div
@@ -83,15 +92,23 @@ function App() {
             // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             key={`${e.weight}_${i}`}
             style={{ 
-              width: "90%",
+              width: "95%",
               display: "flex",
               flexDirection: "row",
               justifyContent: "space-between",
-              // border: "1px solid red",
-              margin: "5px",
+              alignItems: "center",
+              margin: "5px 0",
              }}>
-              <span >{`${i + 1}: ${e.weight} gm/ price: ${e?.price || ""} $`}</span>
+              <span style={{ display: "flex", width: '100%', alignItems: "center" }}>
+                {`${i + 1}: ${e.weight} gm/ `}
+              <p style={{ color: "#4caf50", fontWeight: "600", }}>{e?.price ? ` price: ${e?.price} $`: ""}</p>
+              </span>
               <button 
+                style={{
+                  backgroundColor: "#f44336",
+                  border: "none",
+                  height: "20px"
+                }}
                 onClick={() => setData(prev => prev.filter(prevItem => prevItem.weight !== e.weight))}
               >X</button>
             </div>
@@ -117,7 +134,10 @@ function App() {
           />
           <button 
             style={{
-              height: "45px"
+              height: "45px",
+              backgroundColor: "#00bcd4",
+              border: "none",
+    
             }}
           onClick={() => {
             setData(prev => [...prev, {weight}]);
@@ -126,10 +146,35 @@ function App() {
         </div>
       </div>
 
-      <div>
-        <label>General summ</label>
-        <input value={generalSumm} onChange={e => setGeneralSumm(e.target.value)}/>
-        <button onClick={() => getResult()}>Calculate</button>
+      <div
+        style={{
+          border: "1px solid #bdbdbd",
+          margin: "20px 0 0 0",
+          width: "320px",
+          display: "flex",
+          flexDirection: "column",
+          padding: "10px",
+          borderRadius: "5px",
+        }}
+      >
+        <label 
+          
+        >General summ</label>
+        <input 
+          style={{
+            all: 'unset',
+            borderBottom: "1px solid #bdbdbd",
+            margin: "10px 0"
+          }}
+        value={generalSumm} onChange={e => setGeneralSumm(e.target.value)}/>
+        <button 
+          style={{
+            height: "45px",
+            backgroundColor: "#8bc34a",
+            border: "none",
+  
+          }}
+        onClick={() => getResult()}>Calculate</button>
       </div>
     </>
   )
