@@ -1,16 +1,17 @@
+/* eslint-disable @typescript-eslint/restrict-template-expressions */
 import { useState } from 'react'
 import './App.css'
 import axios from 'axios';
 
 function App() {
   const [currencyInput, setCurrencyInput] = useState("");
-  const [currencyResult, setCurrencyResult] = useState(0);
+  const [currencyResult, setCurrencyResult] = useState();
   const [isLoading, setLoading] = useState(false);
   
 
   const [data, setData] = useState([]);
-  const [weight, setWeight] = useState(0);
-  const [generalSumm, setGeneralSumm] = useState(0);
+  const [weight, setWeight] = useState("");
+  const [generalSumm, setGeneralSumm] = useState("");
 
   const fetchData = async (amount) => {
     setLoading(true);
@@ -20,6 +21,7 @@ function App() {
             },
     })
     .then(r => {
+      // eslint-disable-next-line @typescript-eslint/no-unsafe-argument, @typescript-eslint/no-unsafe-member-access
       setCurrencyResult(r.data.new_amount);
       setLoading(false);
     })
@@ -33,6 +35,7 @@ function App() {
 
     const eachOrderCost = eachValuePercent.map(item => ((+item / 100) * +generalSumm).toFixed(2));
 
+    // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
     setData(prev => prev.map((e, weightIndex)=> ({weight: e.weight, price: eachOrderCost[weightIndex]})))
 
   }
@@ -57,6 +60,7 @@ function App() {
         style={{
           height: "45px"
         }}
+        // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onClick={() => fetchData(currencyInput)}>{isLoading ? "Converting ..." : "Convert"}</button>
       </div>
       
@@ -76,6 +80,7 @@ function App() {
         >
           {data.map((e, i) => 
             <div 
+            // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
             key={`${e.weight}_${i}`}
             style={{ 
               width: "90%",
@@ -101,7 +106,7 @@ function App() {
         >
           <label>Order weight</label>
           <input 
-            type="number" 
+            type="text" 
             value={weight} 
             onChange={(e) => setWeight(e.target.value)} 
             style={{
@@ -116,14 +121,14 @@ function App() {
             }}
           onClick={() => {
             setData(prev => [...prev, {weight}]);
-            setWeight(0);
+            setWeight("");
           }}>Add order</button>
         </div>
       </div>
 
       <div>
         <label>General summ</label>
-        <input type="number" value={generalSumm} onChange={e => setGeneralSumm(e.target.value)}/>
+        <input value={generalSumm} onChange={e => setGeneralSumm(e.target.value)}/>
         <button onClick={() => getResult()}>Calculate</button>
       </div>
     </>
