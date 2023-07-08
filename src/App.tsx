@@ -64,7 +64,7 @@ function App() {
           height: "45px",
           backgroundColor: "#009688",
           border: "none",
-
+          color: "#fff",
         }}
         // eslint-disable-next-line @typescript-eslint/no-misused-promises
         onClick={() => fetchData(currencyInput)}>{isLoading ? "Converting ..." : "Convert"}</button>
@@ -137,7 +137,7 @@ function App() {
               height: "45px",
               backgroundColor: "#00bcd4",
               border: "none",
-    
+              color: "#fff",
             }}
           onClick={() => {
             setData(prev => [...prev, {weight}]);
@@ -172,7 +172,7 @@ function App() {
             height: "45px",
             backgroundColor: "#8bc34a",
             border: "none",
-  
+            color: "#fff",
           }}
         onClick={() => getResult()}>Calculate</button>
       </div>
