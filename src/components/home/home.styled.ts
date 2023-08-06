@@ -51,28 +51,92 @@ export const Card = styled('div')`
     backdrop-filter: blur(5px);
     -webkit-backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    height: 250px;
+    /* height: 250px; */
     width: 100%;
     padding: 5px;
     
 `
 
+export const CardList = styled('div')`
+    background: rgba(255, 255, 255, 0.47);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10.8px);
+    -webkit-backdrop-filter: blur(10.8px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    margin: 10px 0;
+    padding: 5px;
+    max-height: 500px;
+    overflow-y: scroll;
+    span {
+        margin: 5px 0;
+    }
+`
+
+export const CardListItem = styled('div')`
+    font-size: 20px;
+    border-bottom: 1px solid #bdbdbd;
+    padding-bottom: 5px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    height: 30px;
+    p {
+        width: 89%;
+        margin: 0;
+        margin: 5px 0 5px 5px;
+    }
+    
+    button {
+        all: unset;
+        width: 10%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 2px;
+        svg {
+            width: 30px;
+            height: 30px;
+            color: #f44336;
+        }
+
+    }
+`
+export const ResultListItem = styled('div')`
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding-left: 40px;
+    span {
+        margin-left: 10px;
+        color: #558b2f;
+        font-weight: bold;
+        font-size: 18px;
+    }
+`
+
 export const Input = styled('div')`
     display: flex;
     flex-direction: row;
+    margin: 10px 0;
     input {
         all: unset;
         /* border: 1px solid red; */
         height: 45px;
         border-radius: 12px 0 0 12px;
         width: 69%;
-        padding: 0 5px ;
+        padding: 0 5px;
+        
         &[type="text"] {
             color: #212121;
             font-size: 20px;
             background-color: #eeeeee;
-            background: rgba(255, 255, 255, 0.2);
+            background: rgba(255, 255, 255, 0.5);
         }
+        
     }
     button {
         all: unset;
@@ -85,8 +149,28 @@ export const Input = styled('div')`
         justify-content: center;
         background-color: rgba(255,255,255,0.5);
         color: rgba(6,54,61,1);
-        font-size: 20px;
+        font-size: 18px;
     }
+`
+
+export const ResetBtn = styled('div')`
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    button {
+        all: unset;
+        border: 1px solid red;
+        width: 120px;
+        height: 45px;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #f44336;
+        color: #eeeeee;
+        font-size: 18px;
+    }
+    
 `
 
 export const Sheet = styled('div')`
