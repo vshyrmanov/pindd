@@ -1,11 +1,13 @@
-import Demo from './components/demo/Demo'
-import './App.css'
+// import Demo from './components/demo/Demo'
+
+import Home from "./components/home/Home"
 
 function App() {
   
 
   return (
-    <Demo />
+    // <Demo />
+    <Home />
   )
 }
 
