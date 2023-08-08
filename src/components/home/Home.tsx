@@ -84,7 +84,7 @@ const Home = () => {
                         <button onClick={resetAll}>Очистити все</button>
                     </Styled.ResetBtn>} */}
                     <Styled.Input>
-                        <input type='text' placeholder='Вага в грамах' ref={weightRef} />
+                        <input type='text' placeholder='Вага в грамах' ref={weightRef} inputMode="numeric" pattern="[0-9]*" />
                         <button onClick={addWeight}>Додати</button>
                     </Styled.Input>
                     {data.length > 0 && <Styled.Input>
