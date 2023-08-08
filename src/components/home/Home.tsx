@@ -5,7 +5,6 @@ import * as Styled from './home.styled';
 import { AiOutlineHome } from 'react-icons/ai';
 import { MdOutlineCalculate } from 'react-icons/md';
 import { MdClose } from 'react-icons/md';
-import { BsArrowReturnRight } from 'react-icons/bs';
 
 const Home = () => {
     const [show, setShow] = useState(false);
@@ -62,27 +61,28 @@ const Home = () => {
                 <h1>Welcome, Viktor</h1>
             </Styled.Title> */}
             
-            <Styled.Sheet>
+            {/* <Styled.Sheet>
 
-            </Styled.Sheet>
+            </Styled.Sheet> */}
             <Styled.CardWrapper show={show.toString()}>
                 <Styled.Card>
+                {isResetBtn && <Styled.ResetBtn>
+                        <button onClick={resetAll}>Очистити все</button>
+                    </Styled.ResetBtn>}
                     {data.length > 0 && <Styled.CardList>
                         {data.map(({weight, price}, weightIndex) => 
                         <React.Fragment  key={`${weightIndex}_${weight}`}>
                             <Styled.CardListItem >
-                                <p>{`${weightIndex + 1}: ${weight} gm `}</p>
+                                <p>{`${weightIndex + 1}: ${weight} гр `}</p>
+                                {price && <span>{`${price} $`}</span>}
                                 <button onClick={removeWeight(weight)}><MdClose /></button> 
                             </Styled.CardListItem>
-                            {price && <Styled.ResultListItem>
-                                <BsArrowReturnRight /><span>{` price: ${price} $`}</span>
-                            </Styled.ResultListItem>}
                         </React.Fragment>
                         )}
                     </Styled.CardList>}
-                    {isResetBtn && <Styled.ResetBtn>
+                    {/* {isResetBtn && <Styled.ResetBtn>
                         <button onClick={resetAll}>Очистити все</button>
-                    </Styled.ResetBtn>}
+                    </Styled.ResetBtn>} */}
                     <Styled.Input>
                         <input type='text' placeholder='Вага в грамах' ref={weightRef} />
                         <button onClick={addWeight}>Додати</button>

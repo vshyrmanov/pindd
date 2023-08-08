@@ -6,12 +6,14 @@ export const Main = styled('div')`
     max-height: 100%;
     width: 100vw;
     max-width: 100%;
-    background-image: url('https://cdn.discordapp.com/attachments/1038329663187062804/1137071193799798905/fultron84_a_diorama_of_paper_cut_outs_depicting_a_scenic_temple_7963d1c1-1ace-40bc-82ff-58e886884b7b.png');
+    /* background-image: url('https://cdn.discordapp.com/attachments/1038329663187062804/1137071193799798905/fultron84_a_diorama_of_paper_cut_outs_depicting_a_scenic_temple_7963d1c1-1ace-40bc-82ff-58e886884b7b.png'); */
+    background-image: url('https://res.cloudinary.com/dh7zhye5h/image/upload/v1691526033/2_huihzz.jpg');
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
 `
+
 
 export const Title = styled('div')`
     position: fixed;
@@ -85,11 +87,14 @@ export const CardListItem = styled('div')`
     position: relative;
     height: 30px;
     p {
-        width: 89%;
+        width: 50%;
         margin: 0;
         margin: 5px 0 5px 5px;
     }
-    
+    span {
+        width: 30%;
+        color: #558b2f;
+    }
     button {
         all: unset;
         width: 10%;
@@ -110,6 +115,7 @@ export const ResultListItem = styled('div')`
     display: flex;
     align-items: center;
     padding-left: 40px;
+    border-bottom: 1px solid #bdbdbd;
     span {
         margin-left: 10px;
         color: #558b2f;
@@ -161,14 +167,14 @@ export const ResetBtn = styled('div')`
         all: unset;
         border: 1px solid red;
         width: 120px;
-        height: 45px;
+        height: 35px;
         border-radius: 12px;
         display: flex;
         align-items: center;
         justify-content: center;
         background-color: #f44336;
         color: #eeeeee;
-        font-size: 18px;
+        font-size: 16px;
     }
     
 `
